@@ -32,9 +32,8 @@ exports.getSingle = async (req,res) =>{
         })
 }
 exports.add = async (req,res)=>{
-    const data = req.body;
     try{
-        const newProduct = new Product(data);
+        const newProduct = new Product(req.body);
         const result = await newProduct.save();
         res.json({
             result : 1,
