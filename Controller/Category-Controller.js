@@ -52,11 +52,10 @@ exports.add = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
-    const {id, name} = req.body;
+    const {name} = req.body;
     
     try{
-        const result = await Category.updateOne({id : id},{$set : {
-            id : id,
+        const result = await Category.updateOne({id : req.params.id},{$set : {
             name : name
         }})
         res.json({
