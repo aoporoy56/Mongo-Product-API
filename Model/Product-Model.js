@@ -13,7 +13,8 @@ const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
     id : {
         type : Number,
-        required : [true, "Refresh and check again"]
+        required : [true, "Refresh and check again"],
+        unique : [true, "Please Id Change"]
     },
     name : {
         type : String,

@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 categoreSchema = mongoose.Schema({
     id : {
         type : Number,
-        required : [true, "Category Id Needed"]
+        required : [true, "Category Id Needed"],
+        unique : [true, "Please Id Change"]
     },
     name : {
         type : String,
