@@ -31,6 +31,21 @@ exports.getSingle = async (req,res) =>{
             data : singleData
         })
 }
+exports.search = async (req,res) => {
+    const searchResult = await Product.find({name : {$regex : ".*"+req.params.search+".*"}})
+    if(searchResult)
+        res.json({
+            result : 1,
+            message : "Data Get",
+            data : searchResult
+        })
+    else
+        res.json({
+            result : 0,
+            message : "Data Get",
+            data : searchResult
+        })
+}
 exports.add = async (req,res)=>{
     try{
         const newProduct = new Product(req.body);
